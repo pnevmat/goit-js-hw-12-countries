@@ -1,10 +1,9 @@
+import refs from './refs';
 import fetchCountries from './fetchCountries';
 import updateMarkup from './update-contries-markup';
 const debounce = require('lodash.debounce');
 
-const inputRef = document.querySelector('.js-input');
-
-inputRef.addEventListener('input', debounce(() => {
-    fetchCountries(inputRef.value)
+refs.inputRef.addEventListener('input', debounce(() => {
+    fetchCountries(refs.inputRef.value)
     .then(data => updateMarkup(data))
 }, 500))
